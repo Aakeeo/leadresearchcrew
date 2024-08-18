@@ -1,0 +1,24 @@
+company_bio_task:
+  description: >
+    Collect detailed information about the company {company_name} with website {company_url}, including it's number of employees, revenue, and industry. This information will form the basis of the company bio for the final report.
+  expected_output: >
+    A comprehensive company bio including Name, Website, Number of Employees, 
+    Revenue, and Industry/Space the company operates in.
+  agent: company_researcher
+
+employee_info_task:
+  description: >
+    Collect detailed information about the employees of the company {company_name} with website {company_url}, including their roles, responsibilities, and contact information. This information will be used to identify key stakeholders for the outreach process. If there is a linkedin url in the enrichment response then pass it to FindPersonalInfo tool to get the personal information about the employees.
+  expected_output: >
+    A list of employees with their roles, responsibilities, and contact information.
+  agent: employee_researcher
+
+consolidate_research_task:
+  description: >
+    Compile and organize the information gathered by the company and employee researchers into a report. This report will be passed onto a UI for better representation.
+  expected_output: >
+    A consolidated report with company bio, employee information from the company_bio_task and employee_info_task.
+  agent: research_consolidator
+  context:
+    - company_bio_task
+    - employee_info_task
