@@ -17,7 +17,7 @@ consolidate_research_task:
   description: >
     Compile and organize the information gathered by the company and employee researchers into a report. This report will be passed onto a UI for better representation.
   expected_output: >
-    A consolidated report with company bio, employee information from the company_bio_task and employee_info_task.
+    A final detailed report with company bio, employee information from the company_bio_task and employee_info_task. The report should be well-organized and easy to read. It should detail the Company Profile and an Employee Directory. Also include any additional information that may be relevant to the sales process. The report should also include a first contact email template for every employee individually.
   agent: research_consolidator
   context:
     - company_bio_task
